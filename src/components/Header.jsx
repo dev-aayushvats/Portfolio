@@ -8,7 +8,8 @@ function Header({ id }) {
       </div>
       <div className="text-container">
         <h1 className="name">Aayush Vats</h1>
-        <p className="description">A passionate developer creating innovative solutions.</p>
+        <p className="description">Pre-Final Year Undergrad at IIT Dharwad</p>
+        <p className="description">Tech Enthusiast, Problem Solver, Developer</p>
       </div>
     </header>
   );
