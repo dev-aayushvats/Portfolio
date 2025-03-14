@@ -3,10 +3,10 @@
   height: auto;
   background-color: #000000;
   position: relative;
-  overflow-x: hidden; /* Ensure no horizontal overflow */
+  overflow-x: hidden;
   background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 30px 30px;
+  background-size: 20px 20px;
 }
 
 .frosted-background::before {
@@ -24,8 +24,8 @@
 
 .glow {
   position: fixed;
-  width: 200px;
-  height: 200px;
+  width: 120px;
+  height: 120px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -41,7 +41,7 @@
   margin-right: auto;
   padding-top: 120px;
   padding-bottom: 60px;
-  box-sizing: border-box; /* Include padding in width */
+  box-sizing: border-box;
 }
 
 .navbar {
@@ -60,7 +60,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-sizing: border-box; /* Include padding in width */
+  box-sizing: border-box;
 }
 
 .navbar-brand {
@@ -283,7 +283,12 @@
   }
 
   .navbar-brand {
-    width: auto;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-name {
+    margin-right: 10px;
   }
 
   .nav-menu {
@@ -374,8 +379,7 @@
   }
 
   .glow {
-    width: 80px;
-    height: 80px;
+    display: none; /* Hide glow on mobile screens */
   }
 }
 
@@ -403,15 +407,20 @@
   }
 }
 
-/* Custom Scrollbar */
-html {
-  /* Firefox */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-  overflow-x: hidden; /* Prevent horizontal overflow at root */
+/* Additional Touch Device Detection */
+@media (hover: none) and (pointer: coarse) {
+  .glow {
+    display: none; /* Hide glow on touch devices */
+  }
 }
 
-/* Chrome, Edge, Safari */
+/* Custom Scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  overflow-x: hidden;
+}
+
 html::-webkit-scrollbar {
   width: 8px;
 }
@@ -429,8 +438,7 @@ html::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.5);
 }
 
-/* Body overflow to catch any remaining issues */
 body {
   overflow-x: hidden;
-  margin: 0; /* Ensure no default margin causes overflow */
+  margin: 0;
 }
