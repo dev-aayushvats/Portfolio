@@ -6,7 +6,7 @@
   overflow-x: hidden; /* Ensure no horizontal overflow */
   background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-size: 30px 30px;
 }
 
 .frosted-background::before {
@@ -24,8 +24,8 @@
 
 .glow {
   position: fixed;
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
   transform: translate(-50%, -50%);
   pointer-events: none;
