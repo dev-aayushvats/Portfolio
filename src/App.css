@@ -75,10 +75,11 @@
   cursor: pointer;
   transition: color 0.3s ease;
   margin-right: 20px;
+  position: relative;
 }
 
 .nav-name:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: #4da8da;
 }
 
 .nav-menu {
@@ -93,11 +94,29 @@
   margin: 0 15px;
   cursor: pointer;
   transition: color 0.3s ease, transform 0.2s ease;
+  position: relative;
 }
 
 .nav-item:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: #4da8da;
   transform: scale(1.05);
+}
+
+/* Add blue underline on hover for nav items */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 50%;
+  background: #4da8da;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+  left: 0;
 }
 
 .hamburger {
@@ -115,6 +134,10 @@
   background: #ffffff;
   margin: 5px 0;
   transition: all 0.3s ease;
+}
+
+.hamburger:hover .hamburger-line {
+  background: #4da8da;
 }
 
 .portfolio-header {
@@ -137,11 +160,12 @@
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid rgba(255, 255, 255, 0.15);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .profile-photo:hover {
   transform: scale(1.05);
+  border-color: #4da8da;
 }
 
 .text-container {
@@ -175,6 +199,20 @@
   margin-bottom: 30px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Add blue underline to section titles */
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: #4da8da;
+  opacity: 0.7;
 }
 
 .skills-content {
@@ -191,24 +229,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center content vertically */
+  justify-content: center;
   text-align: center;
-  padding: 10px; /* Reduced padding to minimize space */
+  padding: 10px;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 8px;
-  transition: transform 0.3s ease, background 0.3s ease;
-  min-height: 90px; /* Reduced min-height to fit content */
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  min-height: 90px;
+  border: 1px solid transparent;
 }
 
 .skill-item:hover {
   transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(77, 168, 218, 0.1);
+  border-color: #4da8da;
 }
 
 .skill-logo {
   width: 50px;
   height: 50px;
-  margin-bottom: 8px; /* Slightly reduced margin */
+  margin-bottom: 8px;
   filter: brightness(0) invert(1);
 }
 
@@ -233,13 +273,15 @@
   padding: 20px;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 10px;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .project-item:hover,
 .experience-item:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(77, 168, 218, 0.1);
+  border-color: #4da8da;
 }
 
 .project-item h3,
@@ -247,6 +289,13 @@
   font-size: 1.8rem;
   font-weight: 600;
   margin: 0 0 10px;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.project-item:hover h3,
+.experience-item:hover h3 {
+  color: #4da8da;
 }
 
 .project-item ul,
@@ -267,7 +316,7 @@
 .section-divider {
   border: none;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(77, 168, 218, 0.3);
   margin: 20px 0;
 }
 
@@ -315,6 +364,10 @@
     font-size: 1.2rem;
   }
 
+  .nav-item::after {
+    bottom: -2px;
+  }
+
   .hamburger {
     display: block;
   }
@@ -358,14 +411,14 @@
   }
 
   .skill-item {
-    padding: 8px; /* Further reduced padding for mobile */
-    min-height: 80px; /* Adjusted for smaller screens */
+    padding: 8px;
+    min-height: 80px;
   }
 
   .skill-logo {
     width: 40px;
     height: 40px;
-    margin-bottom: 6px; /* Reduced margin for mobile */
+    margin-bottom: 6px;
   }
 
   .skill-item span {
@@ -435,7 +488,7 @@ html::-webkit-scrollbar-track {
 
 html::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
+  border-radius: 50%; /* Pill shape with full rounding */
 }
 
 html::-webkit-scrollbar-thumb:hover {
