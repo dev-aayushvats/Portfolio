@@ -1,12 +1,12 @@
 .frosted-background {
-  width: 100vw;
+  width: 100%;
   height: auto;
   background-color: #000000;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Ensure no horizontal overflow */
   background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 30px 30px;
+  background-size: 20px 20px;
 }
 
 .frosted-background::before {
@@ -24,8 +24,8 @@
 
 .glow {
   position: fixed;
-  width: 200px;
-  height: 200px;
+  width: 120px;
+  height: 120px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -41,6 +41,7 @@
   margin-right: auto;
   padding-top: 120px;
   padding-bottom: 60px;
+  box-sizing: border-box; /* Include padding in width */
 }
 
 .navbar {
@@ -59,6 +60,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box; /* Include padding in width */
 }
 
 .navbar-brand {
@@ -72,7 +74,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: color 0.3s ease;
-  margin-right: 20px; /* Space between name and menu */
+  margin-right: 20px;
 }
 
 .nav-name:hover {
@@ -88,7 +90,7 @@
 .nav-item {
   color: #ffffff;
   font-size: 1.4rem;
-  margin: 0 15px; /* Adjusted spacing */
+  margin: 0 15px;
   cursor: pointer;
   transition: color 0.3s ease, transform 0.2s ease;
 }
@@ -388,7 +390,7 @@
 
   .nav-item {
     margin: 0 20px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .profile-photo {
@@ -397,6 +399,38 @@
   }
 
   .name {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
+}
+
+/* Custom Scrollbar */
+html {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  overflow-x: hidden; /* Prevent horizontal overflow at root */
+}
+
+/* Chrome, Edge, Safari */
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Body overflow to catch any remaining issues */
+body {
+  overflow-x: hidden;
+  margin: 0; /* Ensure no default margin causes overflow */
 }
